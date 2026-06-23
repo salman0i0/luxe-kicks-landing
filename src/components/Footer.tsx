@@ -7,9 +7,9 @@ const cols: Col[] = [
     h: "Shop",
     l: [
       { label: "New Drops", to: "/new-drops" },
-      { label: "Basketball", to: "/", hash: "shop" },
-      { label: "Running", to: "/", hash: "shop" },
-      { label: "Lifestyle", to: "/", hash: "shop" },
+      { label: "Collections", to: "/collections" },
+      { label: "Men", to: "/", hash: "shop" },
+      { label: "Women", to: "/", hash: "shop" },
     ],
   },
   {
@@ -24,10 +24,10 @@ const cols: Col[] = [
   {
     h: "Support",
     l: [
-      { label: "Help Center", to: "/", hash: "shop" },
-      { label: "Shipping", to: "/", hash: "shop" },
-      { label: "Returns", to: "/", hash: "shop" },
-      { label: "Contact", to: "/", hash: "shop" },
+      { label: "Help Center", to: "/collections" },
+      { label: "Shipping", to: "/collections" },
+      { label: "Returns", to: "/collections" },
+      { label: "Contact", to: "/", hash: "story" },
     ],
   },
 ];
@@ -35,7 +35,7 @@ const cols: Col[] = [
 export function Footer() {
   return (
     <footer className="border-t border-border py-12">
-      <div className="mx-auto max-w-7xl px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="font-display text-3xl tracking-widest flex items-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-primary" />
@@ -60,7 +60,7 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <div className="mx-auto max-w-7xl px-6 mt-12 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-4 text-xs text-muted-foreground">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-12 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-4 text-xs text-muted-foreground">
         <div>© 2026 SOLE. All rights reserved.</div>
         <div className="flex gap-6">
           <Link to="/" className="hover:text-foreground">Privacy</Link>

@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as NewDropsRouteImport } from './routes/new-drops'
+import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as IndexRouteImport } from './routes/index'
 
 const NewDropsRoute = NewDropsRouteImport.update({
   id: '/new-drops',
   path: '/new-drops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsRoute = CollectionsRouteImport.update({
+  id: '/collections',
+  path: '/collections',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/collections': typeof CollectionsRoute
   '/new-drops': typeof NewDropsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/collections': typeof CollectionsRoute
   '/new-drops': typeof NewDropsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/collections': typeof CollectionsRoute
   '/new-drops': typeof NewDropsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/new-drops'
+  fullPaths: '/' | '/collections' | '/new-drops'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/new-drops'
-  id: '__root__' | '/' | '/new-drops'
+  to: '/' | '/collections' | '/new-drops'
+  id: '__root__' | '/' | '/collections' | '/new-drops'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CollectionsRoute: typeof CollectionsRoute
   NewDropsRoute: typeof NewDropsRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/new-drops'
       fullPath: '/new-drops'
       preLoaderRoute: typeof NewDropsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections': {
+      id: '/collections'
+      path: '/collections'
+      fullPath: '/collections'
+      preLoaderRoute: typeof CollectionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CollectionsRoute: CollectionsRoute,
   NewDropsRoute: NewDropsRoute,
 }
 export const routeTree = rootRouteImport
