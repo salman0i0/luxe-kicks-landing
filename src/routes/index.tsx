@@ -1,29 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
+import { ProductGrid } from "@/components/ProductGrid";
+import { Feature } from "@/components/Feature";
+import { Newsletter } from "@/components/Newsletter";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "SOLE — Step Into Greatness | Premium Sneakers" },
+      {
+        name: "description",
+        content:
+          "Discover premium sneakers engineered for performance and crafted for legends. Shop new drops, basketball, running, and lifestyle silhouettes.",
+      },
+      { property: "og:title", content: "SOLE — Step Into Greatness" },
+      {
+        property: "og:description",
+        content: "Premium sneakers engineered for performance and crafted for legends.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="grain relative min-h-screen bg-background text-foreground">
+      <Navbar />
+      <main>
+        <Hero />
+        <Marquee />
+        <ProductGrid />
+        <Feature />
+        <Newsletter />
+      </main>
+      <Footer />
     </div>
   );
 }
