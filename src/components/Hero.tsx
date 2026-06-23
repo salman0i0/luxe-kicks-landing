@@ -35,24 +35,14 @@ export function Hero() {
         </h2>
       </div>
 
-      <div className="relative mx-auto max-w-7xl min-h-[calc(100svh-5rem)] px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center py-8 lg:py-0">
-        {/* Copy */}
-        <div className="relative z-10 text-center lg:text-left order-2 lg:order-1">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            New · Air Legacy Drop 24
-          </motion.div>
-
+      <div className="relative mx-auto max-w-7xl min-h-[calc(100svh-5rem)] px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-y-6 lg:gap-y-0 lg:gap-x-10 items-center py-8 lg:py-0">
+        {/* Copy Wrapper - acts as display:contents on mobile/tablet to let its children stack inline with the Shoe */}
+        <div className="contents lg:block relative z-10 text-center lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="mt-4 sm:mt-6 font-display leading-[0.9]"
+            className="order-2 mt-4 sm:mt-6 font-display leading-[0.9] text-center lg:text-left w-full"
             style={{ fontSize: "clamp(2.75rem, 11vw, 8rem)" }}
           >
             Step Into
@@ -64,7 +54,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-4 sm:mt-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base text-muted-foreground"
+            className="order-3 mt-4 sm:mt-6 max-w-md mx-auto lg:mx-0 text-sm sm:text-base text-muted-foreground text-center lg:text-left"
           >
             Engineered silhouettes. Court-tested cushioning. Built for those who refuse to stand still.
           </motion.p>
@@ -73,7 +63,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-6 sm:mt-10 flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start"
+            className="order-5 mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start w-full"
           >
             <a
               href="#shop"
@@ -94,7 +84,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="mt-8 sm:mt-12 flex gap-6 sm:gap-8 justify-center lg:justify-start text-left"
+            className="order-6 mt-6 sm:mt-8 flex gap-6 sm:gap-8 justify-center lg:justify-start text-left w-full"
           >
             {[
               { v: "120+", l: "Silhouettes" },
@@ -111,10 +101,10 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Shoe */}
-        <div className="relative order-1 lg:order-2 h-[34vh] sm:h-[44vh] lg:h-[70vh] flex items-center justify-center overflow-hidden [perspective:1200px]">
-          <div className="absolute h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-primary/30 blur-3xl" />
-          <div className="absolute h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-accent/20 blur-3xl translate-x-8 translate-y-8" />
+        {/* Shoe Column - No overflow-hidden or strict heights to prevent clipping */}
+        <div className="relative order-4 lg:order-2 flex items-center justify-center [perspective:1200px] w-full py-8 lg:py-16">
+          <div className="absolute h-40 w-40 sm:h-56 sm:w-56 rounded-full bg-primary/30 blur-3xl" />
+          <div className="absolute h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-accent/20 blur-3xl translate-x-8 translate-y-8" />
 
           <motion.div
             style={{ rotateX, rotateY, x: translateX, y: translateY }}
@@ -125,16 +115,12 @@ export function Hero() {
               alt="Featured red and white high-top sneaker"
               width={1280}
               height={1024}
-              className="animate-float drop-shadow-[0_40px_40px_rgba(0,0,0,0.7)] w-[78%] sm:w-[70%] lg:w-full max-w-[620px]"
+              className="animate-float drop-shadow-[0_20px_20px_rgba(0,0,0,0.6)] lg:drop-shadow-[0_40px_40px_rgba(0,0,0,0.7)] w-[70%] sm:w-[60%] lg:w-full max-w-[500px] lg:max-w-[620px]"
             />
           </motion.div>
 
-          <div className="absolute bottom-2 sm:bottom-0 h-16 sm:h-24 w-3/4 rounded-[50%] bg-black/60 blur-2xl" />
+          <div className="absolute bottom-2 sm:bottom-0 h-10 sm:h-16 w-1/2 rounded-[50%] bg-black/60 blur-xl" />
         </div>
-      </div>
-
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest">
-        Scroll
       </div>
     </section>
   );
