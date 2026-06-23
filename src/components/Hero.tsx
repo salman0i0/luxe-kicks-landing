@@ -24,7 +24,7 @@ export function Hero() {
   }, [mx, my]);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden pt-16">
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden pt-16">
       {/* Background layers */}
       <div className="absolute inset-0 grid-bg" />
       <div className="absolute inset-0 hero-glow" />
@@ -36,7 +36,7 @@ export function Hero() {
         </h2>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-32 grid lg:grid-cols-2 gap-10 items-center min-h-[calc(100vh-4rem)]">
+      <div className="relative mx-auto max-w-7xl h-full px-6 grid lg:grid-cols-2 gap-6 items-center">
         {/* Copy */}
         <div className="relative z-10 text-center lg:text-left">
           <motion.div
@@ -110,7 +110,7 @@ export function Hero() {
         </div>
 
         {/* Shoe */}
-        <div className="relative h-[420px] sm:h-[520px] lg:h-[600px] flex items-center justify-center [perspective:1200px]">
+        <div className="relative h-[36vh] sm:h-[48vh] lg:h-[70vh] flex items-center justify-center overflow-hidden [perspective:1200px]">
           {/* Glow disc */}
           <div className="absolute h-72 w-72 rounded-full bg-primary/30 blur-3xl" />
           <div className="absolute h-96 w-96 rounded-full bg-accent/20 blur-3xl translate-x-12 translate-y-12" />
@@ -124,7 +124,7 @@ export function Hero() {
               alt="Featured red and white high-top sneaker"
               width={1280}
               height={1024}
-              className="animate-float drop-shadow-[0_40px_40px_rgba(0,0,0,0.7)] w-[110%] max-w-none -ml-[5%]"
+              className="animate-float drop-shadow-[0_40px_40px_rgba(0,0,0,0.7)] w-full max-w-[620px]"
             />
           </motion.div>
 

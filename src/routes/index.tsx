@@ -6,6 +6,7 @@ import { ProductGrid } from "@/components/ProductGrid";
 import { Feature } from "@/components/Feature";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
+import { Cursor } from "@/components/Cursor";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,6 +30,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="grain relative min-h-screen bg-background text-foreground">
+      <Cursor />
       <Navbar />
       <main>
         <Hero />

@@ -102,12 +102,22 @@
     scroll-behavior: smooth;
   }
 
+  html, body {
+    overflow-x: clip;
+    max-width: 100vw;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+  }
+
+  /* Custom cursor: hide system cursor on pointer devices */
+  .cursor-none-app,
+  .cursor-none-app * {
+    cursor: none !important;
   }
 
   h1, h2, h3, .font-display {
