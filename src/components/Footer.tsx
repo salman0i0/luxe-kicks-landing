@@ -1,3 +1,37 @@
+import { Link } from "@tanstack/react-router";
+
+type Col = { h: string; l: { label: string; to: string; hash?: string }[] };
+
+const cols: Col[] = [
+  {
+    h: "Shop",
+    l: [
+      { label: "New Drops", to: "/new-drops" },
+      { label: "Basketball", to: "/", hash: "shop" },
+      { label: "Running", to: "/", hash: "shop" },
+      { label: "Lifestyle", to: "/", hash: "shop" },
+    ],
+  },
+  {
+    h: "Company",
+    l: [
+      { label: "Story", to: "/", hash: "story" },
+      { label: "Athletes", to: "/", hash: "story" },
+      { label: "Sustainability", to: "/", hash: "story" },
+      { label: "Careers", to: "/", hash: "story" },
+    ],
+  },
+  {
+    h: "Support",
+    l: [
+      { label: "Help Center", to: "/", hash: "shop" },
+      { label: "Shipping", to: "/", hash: "shop" },
+      { label: "Returns", to: "/", hash: "shop" },
+      { label: "Contact", to: "/", hash: "shop" },
+    ],
+  },
+];
+
 export function Footer() {
   return (
     <footer className="border-t border-border py-12">
@@ -11,17 +45,15 @@ export function Footer() {
             Premium sneakers crafted for athletes, designed for legends.
           </p>
         </div>
-        {[
-          { h: "Shop", l: ["New Drops", "Basketball", "Running", "Lifestyle"] },
-          { h: "Company", l: ["Story", "Athletes", "Sustainability", "Careers"] },
-          { h: "Support", l: ["Help Center", "Shipping", "Returns", "Contact"] },
-        ].map((col) => (
+        {cols.map((col) => (
           <div key={col.h}>
             <div className="text-xs uppercase tracking-widest text-foreground mb-4">{col.h}</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
               {col.l.map((i) => (
-                <li key={i}>
-                  <a href="#" className="hover:text-foreground transition">{i}</a>
+                <li key={i.label}>
+                  <Link to={i.to} hash={i.hash} className="hover:text-foreground transition">
+                    {i.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -31,9 +63,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 mt-12 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-4 text-xs text-muted-foreground">
         <div>© 2026 SOLE. All rights reserved.</div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-foreground">Privacy</a>
-          <a href="#" className="hover:text-foreground">Terms</a>
-          <a href="#" className="hover:text-foreground">Cookies</a>
+          <Link to="/" className="hover:text-foreground">Privacy</Link>
+          <Link to="/" className="hover:text-foreground">Terms</Link>
+          <Link to="/" className="hover:text-foreground">Cookies</Link>
         </div>
       </div>
     </footer>
